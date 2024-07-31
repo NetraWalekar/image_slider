@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image slider</title>
+    <style>
+        .container{
+            width: 400px;
+            height: 400px;
+            border-radius: 25px;
+            box-shadow: 5px 5px 5px gray;
+            display: block;
+            margin: 50px auto;
+            object-fit: cover;
+            position: relative;
+        }
+        .img{
+            height: 400px;
+            width: 400px;
+            border-radius: 25px;
+        }
+        .left-arrow{
+            height: 50px;
+            position: absolute;
+            top: 250px;
+            left: 550px;
+        }
+        .right-arrow{
+            height: 50px;
+            position: absolute;
+            top: 250px;
+            right: 550px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="1.jpg" alt="" class="img" id="dis_img">
+    </div>
+    <img src="left-arrow.png" alt="" class="left-arrow" id="left-arrow" onclick="left()">
+    <img src="right-arrow.png" alt="" class="right-arrow" id="right-arrow" onclick="right()">
+    <script>
+        const img = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg']
+        let img_index = 0;
+        function left(){
+            if(img_index==0){
+                img_index = img.length-1;
+            }
+            else{
+                img_index--;
+            }
+
+            const img_ele = document.getElementById("dis_img")
+            img_ele.src=img[img_index]
+        }
+
+        function right(){
+            if(img_index==img.length){
+                img_index = img[0];
+            }
+            else{
+                img_index++;
+            }
+
+            const img_ele = document.getElementById("dis_img")
+            img_ele.src=img[img_index]
+        }
+      
+    </script>
+</body>
+</html>
